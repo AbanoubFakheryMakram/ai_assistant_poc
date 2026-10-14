@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Static analysis
+        run: flutter analyze
+
+      # Unit and widget tests only. The on-device model evaluation
+      # (integration_test/) needs a phone or simulator and a downloaded model, so
+      # it is run by hand (see docs/running-the-evaluation.md).
+      - name: Unit and widget tests
+        run: flutter test

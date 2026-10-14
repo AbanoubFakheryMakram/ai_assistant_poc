@@ -1,0 +1,1889 @@
+{
+ "dataset": "phase_2_recovery_v1",
+ "datasetVersion": 1,
+ "runAt": "2026-10-04T09:12:20.313215Z",
+ "model": {
+  "model": "Gemma 4 E2B",
+  "modelSource": "https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm/resolve/main/gemma-4-E2B-it.litertlm",
+  "modelFileFormat": "litertlm",
+  "runtime": "flutter_gemma 1.11.3 + flutter_gemma_litertlm 1.8.5 (LiteRT-LM)",
+  "modelType": "gemma4",
+  "backend": "cpu",
+  "maxTokens": 4096,
+  "maxOutputTokens": 256,
+  "thinking": false,
+  "sampling": "topK=1, temperature=0.1",
+  "promptVersion": "recovery_prompt_v1",
+  "tools": [
+   "change_theme",
+   "navigate"
+  ]
+ },
+ "device": {
+  "platform": "ios",
+  "osVersion": "Version 26.2 (Build 23C54)",
+  "deviceName": "iPhone 17 Pro Max",
+  "deviceKind": "simulator",
+  "processors": 12
+ },
+ "modelLoad": {
+  "installMs": 19,
+  "loadMs": 5998,
+  "downloadedFromNetworkThisRun": false
+ },
+ "metrics": {
+  "totalCommands": 48,
+  "actionAccuracyPct": 91.66666666666666,
+  "parameterAccuracyPct": 100.0,
+  "parameterAccuracyAllCasesPct": 91.66666666666666,
+  "fullPredictionAccuracyPct": 91.66666666666666,
+  "statusAccuracyPct": 91.66666666666666,
+  "invalidOutputRatePct": 0.0,
+  "invalidOutputsExecuted": 0,
+  "multipleFunctionCallRatePct": 0.0,
+  "proseOutputRatePct": 16.666666666666664,
+  "navigateProfileCollapseCases": 0,
+  "fullPredictionAccuracyProseAsInvalidPct": 75.0,
+  "fabricatedParameterRatePct": 8.333333333333332,
+  "fabricatedParameterCases": 4,
+  "uncontrolledExecutions": 0,
+  "executedActions": 40,
+  "environmentCalls": 40,
+  "expectSuccessCases": 36,
+  "expectNonSuccessCases": 12
+ },
+ "languageBreakdown": {
+  "egyptian_arabic": {
+   "total": 12,
+   "actionAccuracyPct": 91.66666666666666,
+   "parameterAccuracyPct": 100.0,
+   "fullPredictionAccuracyPct": 91.66666666666666
+  },
+  "english": {
+   "total": 12,
+   "actionAccuracyPct": 91.66666666666666,
+   "parameterAccuracyPct": 100.0,
+   "fullPredictionAccuracyPct": 91.66666666666666
+  },
+  "mixed": {
+   "total": 12,
+   "actionAccuracyPct": 91.66666666666666,
+   "parameterAccuracyPct": 100.0,
+   "fullPredictionAccuracyPct": 91.66666666666666
+  },
+  "msa_arabic": {
+   "total": 12,
+   "actionAccuracyPct": 91.66666666666666,
+   "parameterAccuracyPct": 100.0,
+   "fullPredictionAccuracyPct": 91.66666666666666
+  }
+ },
+ "latency": {
+  "firstInferenceMs": 1915,
+  "subsequentAverageMs": 1916.595744680851,
+  "subsequentMinMs": 1771,
+  "subsequentMaxMs": 2335
+ },
+ "failureSummary": {
+  "failedCases": 4,
+  "byCategory": {
+   "fabricated_parameter": 4
+  }
+ },
+ "failures": [
+  {
+   "id": "phase_2_recovery_v1-clarify-eng-001",
+   "input": "Switch the appearance",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-msa-001",
+   "input": "بدّل مظهر التطبيق",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-egy-001",
+   "input": "بدّل الثيم لو سمحت",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-mix-001",
+   "input": "عدّل الـtheme",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  }
+ ],
+ "cases": [
+  {
+   "id": "phase_2_recovery_v1-theme-eng-001",
+   "language": "english",
+   "input": "Turn on dark mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1915,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-002",
+   "language": "english",
+   "input": "Make the app dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1894,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-003",
+   "language": "english",
+   "input": "Switch to light mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1900,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-004",
+   "language": "english",
+   "input": "I'd like the light appearance",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1887,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-005",
+   "language": "english",
+   "input": "Set the appearance to match my device",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1896,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-001",
+   "language": "english",
+   "input": "Open my profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1823,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-002",
+   "language": "english",
+   "input": "Take me to settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1835,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-003",
+   "language": "english",
+   "input": "Go back to home",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1852,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-004",
+   "language": "english",
+   "input": "Bring up my profile page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1878,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-eng-001",
+   "language": "english",
+   "input": "Send an email to my boss",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot send emails. I can only perform actions related to changing themes or navigating within the application.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2128,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-eng-002",
+   "language": "english",
+   "input": "Open WhatsApp",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I do not have an action to open WhatsApp.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 1771,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-eng-001",
+   "language": "english",
+   "input": "Switch the appearance",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1890,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-001",
+   "language": "msa_arabic",
+   "input": "حوّل التطبيق إلى المظهر الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1926,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-002",
+   "language": "msa_arabic",
+   "input": "اضبط المظهر على الوضع الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1886,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-003",
+   "language": "msa_arabic",
+   "input": "فعّل الوضع الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1944,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-004",
+   "language": "msa_arabic",
+   "input": "اجعل المظهر مطابقاً لإعدادات الجهاز",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1937,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-005",
+   "language": "msa_arabic",
+   "input": "اعتمد مظهر النظام تلقائياً",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1956,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-001",
+   "language": "msa_arabic",
+   "input": "افتح الملف الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1831,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-002",
+   "language": "msa_arabic",
+   "input": "انتقل إلى الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1910,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-003",
+   "language": "msa_arabic",
+   "input": "عُد إلى الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1825,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-004",
+   "language": "msa_arabic",
+   "input": "أريد رؤية ملفي الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1850,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-msa-001",
+   "language": "msa_arabic",
+   "input": "أرسل رسالة بريد إلكتروني إلى المدير",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot fulfill this request as there is no tool available to send emails.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 1969,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-msa-002",
+   "language": "msa_arabic",
+   "input": "حوّل مبلغاً من المال إلى حسابي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I am sorry, but I cannot perform financial transactions. I do not have the capability to transfer money.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2116,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-msa-001",
+   "language": "msa_arabic",
+   "input": "بدّل مظهر التطبيق",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1939,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-001",
+   "language": "egyptian_arabic",
+   "input": "خلي التطبيق دارك",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1878,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-002",
+   "language": "egyptian_arabic",
+   "input": "خلي الثيم فاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1942,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-003",
+   "language": "egyptian_arabic",
+   "input": "عايز الوضع الغامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1904,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-004",
+   "language": "egyptian_arabic",
+   "input": "رجّع الشكل لفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1945,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-005",
+   "language": "egyptian_arabic",
+   "input": "خلي الشكل زي إعدادات الموبايل",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1876,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-001",
+   "language": "egyptian_arabic",
+   "input": "افتحلي البروفايل",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1881,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-002",
+   "language": "egyptian_arabic",
+   "input": "روح على الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1824,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-003",
+   "language": "egyptian_arabic",
+   "input": "وديني على الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1850,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-004",
+   "language": "egyptian_arabic",
+   "input": "ورّيني حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1908,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-egy-001",
+   "language": "egyptian_arabic",
+   "input": "كلّم أحمد",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I am sorry, I cannot fulfill that request. I do not have the capability to make phone calls.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2122,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-egy-002",
+   "language": "egyptian_arabic",
+   "input": "اشتريلي لابتوب",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I am sorry, but I cannot fulfill that request. I am an AI assistant and do not have the capability to make purchases.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2335,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-egy-001",
+   "language": "egyptian_arabic",
+   "input": "بدّل الثيم لو سمحت",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1895,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-001",
+   "language": "mixed",
+   "input": "خلي الـtheme dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1897,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-002",
+   "language": "mixed",
+   "input": "خلي الـtheme system",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1952,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-003",
+   "language": "mixed",
+   "input": "فعّل الـlight mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1921,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-004",
+   "language": "mixed",
+   "input": "switch لـdark theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1881,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-005",
+   "language": "mixed",
+   "input": "ظبط الـtheme على system",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 2024,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-001",
+   "language": "mixed",
+   "input": "افتح الـprofile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1804,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-002",
+   "language": "mixed",
+   "input": "روح على settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1830,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-003",
+   "language": "mixed",
+   "input": "go to الـhome",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1856,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-004",
+   "language": "mixed",
+   "input": "open الـprofile بتاعي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1818,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-mix-001",
+   "language": "mixed",
+   "input": "ابعت email لـmanager",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot fulfill this request as there is no tool available to send emails.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2030,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-mix-002",
+   "language": "mixed",
+   "input": "call my mom يا عم",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot fulfill this request. I do not have the capability to make phone calls.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 1983,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-mix-001",
+   "language": "mixed",
+   "input": "عدّل الـtheme",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1881,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called change_theme with {mode: system}."
+  }
+ ],
+ "integrationSanity": [
+  {
+   "input": "Turn on dark mode",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 4413
+  },
+  {
+   "input": "خلي التطبيق دارك",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 2027
+  },
+  {
+   "input": "يا عم خلّي التطبيق دارك",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 2102
+  },
+  {
+   "input": "خلي الـtheme dark",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 1946
+  },
+  {
+   "input": "Open my profile",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1848
+  },
+  {
+   "input": "افتح البروفايل",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1865
+  },
+  {
+   "input": "روح على settings",
+   "raw": "call navigate({destination: settings})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "settings"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "settings",
+   "latencyMs": 1917
+  }
+ ]
+}

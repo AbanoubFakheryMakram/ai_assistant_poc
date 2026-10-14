@@ -1,0 +1,589 @@
+{
+  "description": "Phase 1 deterministic prediction dataset. No natural language; each case is a raw prediction run through validate+execute.",
+  "cases": [
+    {
+      "id": "theme-dark",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "themeMode": "dark"
+      }
+    },
+    {
+      "id": "theme-light",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "light"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "themeMode": "light"
+      }
+    },
+    {
+      "id": "theme-system",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "system"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "themeMode": "system"
+      }
+    },
+    {
+      "id": "lang-en",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "change_language",
+        "parameters": {
+          "language": "en"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "language": "en"
+      }
+    },
+    {
+      "id": "lang-ar",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "change_language",
+        "parameters": {
+          "language": "ar"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "language": "ar"
+      }
+    },
+    {
+      "id": "nav-home",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {
+          "destination": "home"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "destination": "home"
+      }
+    },
+    {
+      "id": "nav-profile",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {
+          "destination": "profile"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "destination": "profile"
+      }
+    },
+    {
+      "id": "nav-settings",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {
+          "destination": "settings"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "destination": "settings"
+      }
+    },
+    {
+      "id": "notif-true",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "toggle_notifications",
+        "parameters": {
+          "enabled": true
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "notificationsEnabled": true
+      }
+    },
+    {
+      "id": "notif-false",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "toggle_notifications",
+        "parameters": {
+          "enabled": false
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "notificationsEnabled": false
+      }
+    },
+    {
+      "id": "search-ok",
+      "category": "valid",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {
+          "query": "medical equipment"
+        }
+      },
+      "expect": "executed",
+      "expectedState": {
+        "lastSearchQuery": "medical equipment"
+      }
+    },
+    {
+      "id": "unknown-action",
+      "category": "invalid_action",
+      "expect": "rejected",
+      "expectedReason": "unknownAction",
+      "payload": {
+        "status": "success",
+        "action": "some_unknown_action",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "missing-action",
+      "category": "invalid_action",
+      "expect": "rejected",
+      "expectedReason": "missingAction",
+      "payload": {
+        "status": "success",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "null-action",
+      "category": "invalid_action",
+      "expect": "rejected",
+      "expectedReason": "missingAction",
+      "payload": {
+        "status": "success",
+        "action": null,
+        "parameters": {}
+      }
+    },
+    {
+      "id": "empty-action",
+      "category": "invalid_action",
+      "expect": "rejected",
+      "expectedReason": "missingAction",
+      "payload": {
+        "status": "success",
+        "action": "",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "non-string-action",
+      "category": "invalid_action",
+      "expect": "rejected",
+      "expectedReason": "malformedPrediction",
+      "payload": {
+        "status": "success",
+        "action": 42,
+        "parameters": {}
+      }
+    },
+    {
+      "id": "theme-missing-mode",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "missingParameter",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "theme-blue",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterValue",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "blue"
+        }
+      }
+    },
+    {
+      "id": "theme-case",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterValue",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "Dark"
+        }
+      }
+    },
+    {
+      "id": "theme-wrong-type",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterType",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": 1
+        }
+      }
+    },
+    {
+      "id": "lang-missing",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "missingParameter",
+      "payload": {
+        "status": "success",
+        "action": "change_language",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "lang-invalid",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterValue",
+      "payload": {
+        "status": "success",
+        "action": "change_language",
+        "parameters": {
+          "language": "fr"
+        }
+      }
+    },
+    {
+      "id": "nav-missing",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "missingParameter",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "nav-invalid",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterValue",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {
+          "destination": "some-arbitrary-route"
+        }
+      }
+    },
+    {
+      "id": "nav-path-traversal",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterValue",
+      "payload": {
+        "status": "success",
+        "action": "navigate",
+        "parameters": {
+          "destination": "/admin"
+        }
+      }
+    },
+    {
+      "id": "notif-missing",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "missingParameter",
+      "payload": {
+        "status": "success",
+        "action": "toggle_notifications",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "notif-string",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterType",
+      "payload": {
+        "status": "success",
+        "action": "toggle_notifications",
+        "parameters": {
+          "enabled": "yes"
+        }
+      }
+    },
+    {
+      "id": "notif-string-true",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterType",
+      "payload": {
+        "status": "success",
+        "action": "toggle_notifications",
+        "parameters": {
+          "enabled": "true"
+        }
+      }
+    },
+    {
+      "id": "search-empty",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "emptyParameter",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {
+          "query": ""
+        }
+      }
+    },
+    {
+      "id": "search-blank",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "emptyParameter",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {
+          "query": "   "
+        }
+      }
+    },
+    {
+      "id": "search-missing",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "missingParameter",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {}
+      }
+    },
+    {
+      "id": "search-wrong-type",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "invalidParameterType",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {
+          "query": 5
+        }
+      }
+    },
+    {
+      "id": "search-too-long",
+      "category": "invalid_params",
+      "expect": "rejected",
+      "expectedReason": "parameterTooLong",
+      "payload": {
+        "status": "success",
+        "action": "search",
+        "parameters": {
+          "query": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+      }
+    },
+    {
+      "id": "malformed-json",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "malformedPrediction",
+      "rawPayload": "{\"status\": \"success\", "
+    },
+    {
+      "id": "not-an-object",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "malformedPrediction",
+      "rawPayload": "[\"change_theme\"]"
+    },
+    {
+      "id": "json-null",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "malformedPrediction",
+      "rawPayload": "null"
+    },
+    {
+      "id": "null-parameters",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "nullParameters",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": null
+      }
+    },
+    {
+      "id": "missing-parameters",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "nullParameters",
+      "payload": {
+        "status": "success",
+        "action": "change_theme"
+      }
+    },
+    {
+      "id": "parameters-not-object",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "invalidParametersObject",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": "dark"
+      }
+    },
+    {
+      "id": "extra-parameter",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unexpectedParameter",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark",
+          "deleteEverything": true
+        }
+      }
+    },
+    {
+      "id": "extra-top-level",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unexpectedField",
+      "payload": {
+        "status": "success",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        },
+        "callback": "exit()"
+      }
+    },
+    {
+      "id": "missing-status",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unknownStatus",
+      "payload": {
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        }
+      }
+    },
+    {
+      "id": "unknown-status",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unknownStatus",
+      "payload": {
+        "status": "maybe",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        }
+      }
+    },
+    {
+      "id": "clarification",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "clarificationRequired",
+      "payload": {
+        "status": "clarification_required",
+        "action": null,
+        "parameters": {}
+      }
+    },
+    {
+      "id": "clarification-with-valid-action",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "clarificationRequired",
+      "payload": {
+        "status": "clarification_required",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        }
+      }
+    },
+    {
+      "id": "unsupported",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unsupportedRequest",
+      "payload": {
+        "status": "unsupported",
+        "action": null,
+        "parameters": {}
+      }
+    },
+    {
+      "id": "unsupported-with-valid-action",
+      "category": "security",
+      "expect": "rejected",
+      "expectedReason": "unsupportedRequest",
+      "payload": {
+        "status": "unsupported",
+        "action": "change_theme",
+        "parameters": {
+          "mode": "dark"
+        }
+      }
+    }
+  ]
+}

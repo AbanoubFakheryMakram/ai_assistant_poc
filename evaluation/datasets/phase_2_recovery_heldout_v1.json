@@ -1,0 +1,759 @@
+{
+ "dataset": "phase_2_recovery_heldout_v1",
+ "version": 1,
+ "description": "HELD-OUT set for the Phase 2 recovery experiment. Must not be run or inspected while changing the prompt/model configuration; run once after the configuration is final. Expected results written before any model ran.",
+ "cases": [
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-001",
+   "language": "english",
+   "input": "Dark mode please",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-002",
+   "language": "english",
+   "input": "Use the dark theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-003",
+   "language": "english",
+   "input": "Light theme, thanks",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-004",
+   "language": "english",
+   "input": "Change the app to light mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-005",
+   "language": "english",
+   "input": "Match the system appearance",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-eng-006",
+   "language": "english",
+   "input": "Set the theme back to the default system setting",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-001",
+   "language": "english",
+   "input": "Show my profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-002",
+   "language": "english",
+   "input": "Take me to the settings screen",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-003",
+   "language": "english",
+   "input": "Head to the home page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-004",
+   "language": "english",
+   "input": "I want to see my account profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-005",
+   "language": "english",
+   "input": "Open settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-eng-006",
+   "language": "english",
+   "input": "Return to the home screen",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-eng-001",
+   "language": "english",
+   "input": "Transfer money to my friend",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-eng-002",
+   "language": "english",
+   "input": "Delete my account",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-eng-003",
+   "language": "english",
+   "input": "Buy something for me",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-clarify-eng-001",
+   "language": "english",
+   "input": "Make the app look different",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-001",
+   "language": "msa_arabic",
+   "input": "اجعل التطبيق بالمظهر الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-002",
+   "language": "msa_arabic",
+   "input": "أرغب في المظهر الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-003",
+   "language": "msa_arabic",
+   "input": "فعّل المظهر الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-004",
+   "language": "msa_arabic",
+   "input": "بدّل إلى الوضع الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-005",
+   "language": "msa_arabic",
+   "input": "استخدم نفس مظهر النظام",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-msa-006",
+   "language": "msa_arabic",
+   "input": "اجعل المظهر تلقائياً حسب الجهاز",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-001",
+   "language": "msa_arabic",
+   "input": "اعرض لي ملفي الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-002",
+   "language": "msa_arabic",
+   "input": "افتح شاشة الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-003",
+   "language": "msa_arabic",
+   "input": "توجّه إلى الشاشة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-004",
+   "language": "msa_arabic",
+   "input": "أريد الذهاب إلى حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-005",
+   "language": "msa_arabic",
+   "input": "انتقل إلى صفحة الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-msa-006",
+   "language": "msa_arabic",
+   "input": "ارجع للصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-msa-001",
+   "language": "msa_arabic",
+   "input": "افتح واتساب",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-msa-002",
+   "language": "msa_arabic",
+   "input": "احذف حسابي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-msa-003",
+   "language": "msa_arabic",
+   "input": "اتصل بشخص ما",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-clarify-msa-001",
+   "language": "msa_arabic",
+   "input": "غيّر شكل التطبيق",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-001",
+   "language": "egyptian_arabic",
+   "input": "خلي الشكل داكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-002",
+   "language": "egyptian_arabic",
+   "input": "خليه دارك مود",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-003",
+   "language": "egyptian_arabic",
+   "input": "عايز الثيم فاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-004",
+   "language": "egyptian_arabic",
+   "input": "رجّعه لايت",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-005",
+   "language": "egyptian_arabic",
+   "input": "خلي الثيم على حسب التليفون",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-egy-006",
+   "language": "egyptian_arabic",
+   "input": "خليه سيستم",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-001",
+   "language": "egyptian_arabic",
+   "input": "افتحلي صفحتي الشخصية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-002",
+   "language": "egyptian_arabic",
+   "input": "وديني على الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-003",
+   "language": "egyptian_arabic",
+   "input": "رجعني للهوم",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-004",
+   "language": "egyptian_arabic",
+   "input": "عايز أشوف البروفايل بتاعي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-005",
+   "language": "egyptian_arabic",
+   "input": "روح للإعدادات بقى",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-egy-006",
+   "language": "egyptian_arabic",
+   "input": "يلا على الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-egy-001",
+   "language": "egyptian_arabic",
+   "input": "ابعت واتساب لماما",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-egy-002",
+   "language": "egyptian_arabic",
+   "input": "حوّل فلوس لصاحبي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-egy-003",
+   "language": "egyptian_arabic",
+   "input": "امسح حسابي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-clarify-egy-001",
+   "language": "egyptian_arabic",
+   "input": "غيّر شكل التطبيق شوية",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-001",
+   "language": "mixed",
+   "input": "خلي الـapp dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-002",
+   "language": "mixed",
+   "input": "set الـtheme لـdark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-003",
+   "language": "mixed",
+   "input": "خلي الـtheme light",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-004",
+   "language": "mixed",
+   "input": "غيّر لـlight mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-005",
+   "language": "mixed",
+   "input": "خلي الـtheme تبع الـsystem",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-theme-mix-006",
+   "language": "mixed",
+   "input": "use الـsystem theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-001",
+   "language": "mixed",
+   "input": "افتح الـprofile page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-002",
+   "language": "mixed",
+   "input": "روح على الـsettings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-003",
+   "language": "mixed",
+   "input": "خدني للـhome",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-004",
+   "language": "mixed",
+   "input": "show my الملف الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-005",
+   "language": "mixed",
+   "input": "open الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-nav-mix-006",
+   "language": "mixed",
+   "input": "back للـhome page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-mix-001",
+   "language": "mixed",
+   "input": "open الـWhatsApp",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-mix-002",
+   "language": "mixed",
+   "input": "delete حسابي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-unsupported-mix-003",
+   "language": "mixed",
+   "input": "buy لي laptop",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "phase_2_recovery_heldout_v1-clarify-mix-001",
+   "language": "mixed",
+   "input": "غير الـlook بتاع الـapp",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  }
+ ]
+}

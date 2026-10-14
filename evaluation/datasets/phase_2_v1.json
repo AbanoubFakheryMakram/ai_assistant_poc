@@ -1,0 +1,807 @@
+{
+ "dataset": "phase_2_v1",
+ "version": 1,
+ "description": "Phase 2 natural-language commands. Expected results were written BEFORE any model ran and must never be edited based on model output. Scope: change_theme and navigate only; other actions are expected to be unsupported.",
+ "cases": [
+  {
+   "id": "theme-eng-001",
+   "language": "english",
+   "input": "Make the theme dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-002",
+   "language": "english",
+   "input": "Switch the app to dark mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-003",
+   "language": "english",
+   "input": "can you set it to light mode please",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-004",
+   "language": "english",
+   "input": "LIGHT THEME",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-005",
+   "language": "english",
+   "input": "Use the system theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-006",
+   "language": "english",
+   "input": "Follow my phone's appearance setting",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "theme-eng-007",
+   "language": "english",
+   "input": "dark pls",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-001",
+   "language": "english",
+   "input": "Show me my profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-002",
+   "language": "english",
+   "input": "Go to my account",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-003",
+   "language": "english",
+   "input": "take me home",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-004",
+   "language": "english",
+   "input": "Open the settings page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-005",
+   "language": "english",
+   "input": "settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-eng-006",
+   "language": "english",
+   "input": "Back to the main screen",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "unsupported-eng-001",
+   "language": "english",
+   "input": "Open Facebook",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "clarify-eng-001",
+   "language": "english",
+   "input": "Change the theme",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "unsupported-eng-002",
+   "language": "english",
+   "input": "Turn off notifications",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "unsupported-eng-003",
+   "language": "english",
+   "input": "What's the weather like today?",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "theme-msa-001",
+   "language": "msa_arabic",
+   "input": "قم بتفعيل الوضع الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-002",
+   "language": "msa_arabic",
+   "input": "أريد المظهر الغامق للتطبيق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-003",
+   "language": "msa_arabic",
+   "input": "فعّل الثيم الغامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-004",
+   "language": "msa_arabic",
+   "input": "غيّر المظهر إلى الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-005",
+   "language": "msa_arabic",
+   "input": "اجعل التطبيق بالوضع المضيء",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-006",
+   "language": "msa_arabic",
+   "input": "استخدم مظهر النظام",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "theme-msa-007",
+   "language": "msa_arabic",
+   "input": "اتبع إعدادات المظهر في الجهاز",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-001",
+   "language": "msa_arabic",
+   "input": "افتح حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-002",
+   "language": "msa_arabic",
+   "input": "انتقل إلى صفحة الملف الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-003",
+   "language": "msa_arabic",
+   "input": "اذهب إلى الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-004",
+   "language": "msa_arabic",
+   "input": "أرني الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-005",
+   "language": "msa_arabic",
+   "input": "افتح صفحة الإعدادات من فضلك",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-msa-006",
+   "language": "msa_arabic",
+   "input": "ارجع إلى الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "unsupported-msa-001",
+   "language": "msa_arabic",
+   "input": "افتح فيسبوك",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "clarify-msa-001",
+   "language": "msa_arabic",
+   "input": "غيّر المظهر",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "unsupported-msa-002",
+   "language": "msa_arabic",
+   "input": "غيّر لغة التطبيق إلى الإنجليزية",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "unsupported-msa-003",
+   "language": "msa_arabic",
+   "input": "ما حالة الطقس اليوم؟",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "theme-egy-001",
+   "language": "egyptian_arabic",
+   "input": "خلي التطبيق غامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-002",
+   "language": "egyptian_arabic",
+   "input": "عايزه dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-003",
+   "language": "egyptian_arabic",
+   "input": "ظبطلي الشكل على الليلي",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-004",
+   "language": "egyptian_arabic",
+   "input": "نور الدنيا شوية، خليه فاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-005",
+   "language": "egyptian_arabic",
+   "input": "خليه لايت بقى",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-006",
+   "language": "egyptian_arabic",
+   "input": "خلي الثيم زي ما التليفون",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "theme-egy-007",
+   "language": "egyptian_arabic",
+   "input": "سيبه على حسب سيستم الموبايل",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-001",
+   "language": "egyptian_arabic",
+   "input": "وديني على حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-002",
+   "language": "egyptian_arabic",
+   "input": "فتحلي صفحة البروفايل بتاعتي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-003",
+   "language": "egyptian_arabic",
+   "input": "رجعني للصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-004",
+   "language": "egyptian_arabic",
+   "input": "عايز الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-005",
+   "language": "egyptian_arabic",
+   "input": "هاتلي صفحة الاعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-egy-006",
+   "language": "egyptian_arabic",
+   "input": "روح على الهوم",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "unsupported-egy-001",
+   "language": "egyptian_arabic",
+   "input": "افتحلي فيسبوك",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "clarify-egy-001",
+   "language": "egyptian_arabic",
+   "input": "غير الثيم",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "unsupported-egy-002",
+   "language": "egyptian_arabic",
+   "input": "ابعتلي إيميل",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "unsupported-egy-003",
+   "language": "egyptian_arabic",
+   "input": "اقفل الإشعارات",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "theme-mix-001",
+   "language": "mixed",
+   "input": "فعّل الـdark mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-002",
+   "language": "mixed",
+   "input": "make it غامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-003",
+   "language": "mixed",
+   "input": "غيّر الـtheme لـlight",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-004",
+   "language": "mixed",
+   "input": "عايز الـlight mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-005",
+   "language": "mixed",
+   "input": "خلي الـtheme زي الـsystem",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-006",
+   "language": "mixed",
+   "input": "use الوضع الليلي",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "theme-mix-007",
+   "language": "mixed",
+   "input": "خلي الـapp dark بقى",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-001",
+   "language": "mixed",
+   "input": "open صفحة الـprofile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-002",
+   "language": "mixed",
+   "input": "وديني للـsettings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-003",
+   "language": "mixed",
+   "input": "go to الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-004",
+   "language": "mixed",
+   "input": "افتحلي الـhome page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-005",
+   "language": "mixed",
+   "input": "show me الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "nav-mix-006",
+   "language": "mixed",
+   "input": "روح لـmy account",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "unsupported-mix-001",
+   "language": "mixed",
+   "input": "open الـFacebook",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "clarify-mix-001",
+   "language": "mixed",
+   "input": "change الـtheme",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "unsupported-mix-002",
+   "language": "mixed",
+   "input": "send email لأحمد",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "unsupported-mix-003",
+   "language": "mixed",
+   "input": "غير الـlanguage لـEnglish",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  }
+ ]
+}

@@ -1,0 +1,791 @@
+{
+ "dataset": "phase_2_recovery_heldout_v3",
+ "version": 1,
+ "description": "Held-out set for round 3 (clarification flow, prompt v4). Not to be run or inspected while choosing a configuration; run once after it is fixed. Expected results written before any model ran. 25% each: theme, navigate, out-of-scope, vague (missing value; the expected clarification target is recorded in clarifyTarget).",
+ "cases": [
+  {
+   "id": "heldout3-theme-eng-001",
+   "language": "english",
+   "input": "Switch to the dark look",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-eng-002",
+   "language": "english",
+   "input": "I prefer the light version",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-eng-003",
+   "language": "english",
+   "input": "Let the phone decide the theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-eng-004",
+   "language": "english",
+   "input": "Enable dark mode now",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-eng-001",
+   "language": "english",
+   "input": "Bring up the settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-eng-002",
+   "language": "english",
+   "input": "Show me the home page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-eng-003",
+   "language": "english",
+   "input": "I want to check my profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-eng-004",
+   "language": "english",
+   "input": "Jump to my account page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-unsupported-eng-001",
+   "language": "english",
+   "input": "Book a table for dinner",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-eng-002",
+   "language": "english",
+   "input": "Read my last email",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-eng-003",
+   "language": "english",
+   "input": "Translate this sentence to Spanish",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-eng-004",
+   "language": "english",
+   "input": "Lower the volume",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-vague-eng-001",
+   "language": "english",
+   "input": "Update the look",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-eng-002",
+   "language": "english",
+   "input": "Change my view",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-eng-003",
+   "language": "english",
+   "input": "Go somewhere",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-eng-004",
+   "language": "english",
+   "input": "Show me a screen",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-theme-msa-001",
+   "language": "msa_arabic",
+   "input": "فعّل المظهر الليلي",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-msa-002",
+   "language": "msa_arabic",
+   "input": "أفضل المظهر المضيء",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-msa-003",
+   "language": "msa_arabic",
+   "input": "دع الهاتف يحدد المظهر",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-msa-004",
+   "language": "msa_arabic",
+   "input": "اجعل التطبيق داكناً",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-msa-001",
+   "language": "msa_arabic",
+   "input": "أظهر لي الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-msa-002",
+   "language": "msa_arabic",
+   "input": "اذهب إلى الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-msa-003",
+   "language": "msa_arabic",
+   "input": "أريد التحقق من ملفي الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-msa-004",
+   "language": "msa_arabic",
+   "input": "افتح صفحة حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-unsupported-msa-001",
+   "language": "msa_arabic",
+   "input": "احجز طاولة للعشاء",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-msa-002",
+   "language": "msa_arabic",
+   "input": "اقرأ آخر رسالة لدي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-msa-003",
+   "language": "msa_arabic",
+   "input": "ترجم هذه الجملة إلى الإسبانية",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-msa-004",
+   "language": "msa_arabic",
+   "input": "اخفض الصوت",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-vague-msa-001",
+   "language": "msa_arabic",
+   "input": "حدّث الشكل",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-msa-002",
+   "language": "msa_arabic",
+   "input": "غيّر العرض",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-msa-003",
+   "language": "msa_arabic",
+   "input": "اذهب إلى مكان ما",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-msa-004",
+   "language": "msa_arabic",
+   "input": "أظهر لي شاشة",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-theme-egy-001",
+   "language": "egyptian_arabic",
+   "input": "ظبط الشكل دارك",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-egy-002",
+   "language": "egyptian_arabic",
+   "input": "عايز الشكل الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-egy-003",
+   "language": "egyptian_arabic",
+   "input": "خلي الموبايل هو اللي يختار الشكل",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-egy-004",
+   "language": "egyptian_arabic",
+   "input": "شغّلي الوضع الغامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-egy-001",
+   "language": "egyptian_arabic",
+   "input": "وريني صفحة الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-egy-002",
+   "language": "egyptian_arabic",
+   "input": "ارجع للهوم",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-egy-003",
+   "language": "egyptian_arabic",
+   "input": "افتحلي البروفايل بتاعي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-egy-004",
+   "language": "egyptian_arabic",
+   "input": "عايز أروح لحسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-unsupported-egy-001",
+   "language": "egyptian_arabic",
+   "input": "احجزلي ترابيزة على العشا",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-egy-002",
+   "language": "egyptian_arabic",
+   "input": "اقرالي آخر إيميل وصلني",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-egy-003",
+   "language": "egyptian_arabic",
+   "input": "ترجملي الجملة دي بالإسباني",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-egy-004",
+   "language": "egyptian_arabic",
+   "input": "وطّي الصوت",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-vague-egy-001",
+   "language": "egyptian_arabic",
+   "input": "حدّثلي الشكل",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-egy-002",
+   "language": "egyptian_arabic",
+   "input": "غيّرلي المنظر",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-egy-003",
+   "language": "egyptian_arabic",
+   "input": "وديني على حتة",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-egy-004",
+   "language": "egyptian_arabic",
+   "input": "وريني شاشة",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-theme-mix-001",
+   "language": "mixed",
+   "input": "خلي الـlook dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-mix-002",
+   "language": "mixed",
+   "input": "عايز الـlight version",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-mix-003",
+   "language": "mixed",
+   "input": "خلي الـphone يختار الـtheme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   }
+  },
+  {
+   "id": "heldout3-theme-mix-004",
+   "language": "mixed",
+   "input": "enable الـdark mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-mix-001",
+   "language": "mixed",
+   "input": "show me الـsettings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-mix-002",
+   "language": "mixed",
+   "input": "خدني على الـhome",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-mix-003",
+   "language": "mixed",
+   "input": "I want الـprofile page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-nav-mix-004",
+   "language": "mixed",
+   "input": "go to الـaccount",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   }
+  },
+  {
+   "id": "heldout3-unsupported-mix-001",
+   "language": "mixed",
+   "input": "book لي table للعشا",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-mix-002",
+   "language": "mixed",
+   "input": "read آخر email",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-mix-003",
+   "language": "mixed",
+   "input": "translate الجملة دي to Spanish",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-unsupported-mix-004",
+   "language": "mixed",
+   "input": "وطّي الـvolume",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   }
+  },
+  {
+   "id": "heldout3-vague-mix-001",
+   "language": "mixed",
+   "input": "update الـlook",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-mix-002",
+   "language": "mixed",
+   "input": "غيّر الـview",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "change_theme.mode",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-mix-003",
+   "language": "mixed",
+   "input": "go لأي مكان",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  },
+  {
+   "id": "heldout3-vague-mix-004",
+   "language": "mixed",
+   "input": "show me شاشة",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "clarifyTarget": "navigate.destination",
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   }
+  }
+ ]
+}

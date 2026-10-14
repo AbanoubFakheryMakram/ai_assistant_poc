@@ -1,0 +1,2283 @@
+{
+ "dataset": "phase_2_recovery_v1",
+ "datasetVersion": 1,
+ "runAt": "2026-10-04T09:20:38.400826Z",
+ "model": {
+  "model": "FunctionGemma 270M",
+  "modelSource": "https://huggingface.co/sasha-denisov/function-gemma-270M-it/resolve/main/functiongemma-270M-it.litertlm",
+  "modelFileFormat": "litertlm",
+  "runtime": "flutter_gemma 1.11.3 + flutter_gemma_litertlm 1.8.5 (LiteRT-LM)",
+  "modelType": "functionGemma",
+  "backend": "cpu",
+  "maxTokens": 1024,
+  "maxOutputTokens": 128,
+  "thinking": false,
+  "sampling": "topK=1, temperature=0.1",
+  "promptVersion": "functiongemma_prompt_v1",
+  "tools": [
+   "change_theme",
+   "navigate"
+  ]
+ },
+ "device": {
+  "platform": "ios",
+  "osVersion": "Version 26.2 (Build 23C54)",
+  "deviceName": "iPhone 17 Pro Max",
+  "deviceKind": "simulator",
+  "processors": 12
+ },
+ "modelLoad": {
+  "installMs": 141959,
+  "loadMs": 1035,
+  "downloadedFromNetworkThisRun": true
+ },
+ "metrics": {
+  "totalCommands": 48,
+  "actionAccuracyPct": 66.66666666666666,
+  "parameterAccuracyPct": 55.55555555555556,
+  "parameterAccuracyAllCasesPct": 58.333333333333336,
+  "fullPredictionAccuracyPct": 58.333333333333336,
+  "statusAccuracyPct": 77.08333333333334,
+  "invalidOutputRatePct": 6.25,
+  "invalidOutputsExecuted": 0,
+  "multipleFunctionCallRatePct": 6.25,
+  "proseOutputRatePct": 27.083333333333332,
+  "navigateProfileCollapseCases": 11,
+  "fullPredictionAccuracyProseAsInvalidPct": 41.66666666666667,
+  "fabricatedParameterRatePct": 6.25,
+  "fabricatedParameterCases": 3,
+  "uncontrolledExecutions": 0,
+  "executedActions": 32,
+  "environmentCalls": 32,
+  "expectSuccessCases": 36,
+  "expectNonSuccessCases": 12
+ },
+ "languageBreakdown": {
+  "egyptian_arabic": {
+   "total": 12,
+   "actionAccuracyPct": 41.66666666666667,
+   "parameterAccuracyPct": 11.11111111111111,
+   "fullPredictionAccuracyPct": 25.0
+  },
+  "english": {
+   "total": 12,
+   "actionAccuracyPct": 75.0,
+   "parameterAccuracyPct": 88.88888888888889,
+   "fullPredictionAccuracyPct": 75.0
+  },
+  "mixed": {
+   "total": 12,
+   "actionAccuracyPct": 91.66666666666666,
+   "parameterAccuracyPct": 88.88888888888889,
+   "fullPredictionAccuracyPct": 91.66666666666666
+  },
+  "msa_arabic": {
+   "total": 12,
+   "actionAccuracyPct": 58.333333333333336,
+   "parameterAccuracyPct": 33.33333333333333,
+   "fullPredictionAccuracyPct": 41.66666666666667
+  }
+ },
+ "latency": {
+  "firstInferenceMs": 1257,
+  "subsequentAverageMs": 1606.6382978723404,
+  "subsequentMinMs": 1254,
+  "subsequentMaxMs": 2531
+ },
+ "failureSummary": {
+  "failedCases": 20,
+  "byCategory": {
+   "prose_output": 5,
+   "unsupported_request_mapped_to_action": 1,
+   "fabricated_parameter": 2,
+   "multiple_function_calls": 3,
+   "wrong_parameter": 4,
+   "wrong_action": 5
+  }
+ },
+ "failures": [
+  {
+   "id": "phase_2_recovery_v1-theme-eng-005",
+   "input": "Set the appearance to match my device",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot assist with setting the appearance to match your device. My current capabilities are limited to assisting with app theme management.\"",
+   "failureCategory": "prose_output",
+   "explanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-eng-002",
+   "input": "Open WhatsApp",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "unsupported_request_mapped_to_action",
+   "explanation": "Request should not map to an exposed action but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-eng-001",
+   "input": "Switch the appearance",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-001",
+   "input": "حوّل التطبيق إلى المظهر الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null
+   },
+   "rawModelOutput": "call change_theme({mode: dark}) | call change_theme({mode: light})",
+   "failureCategory": "multiple_function_calls",
+   "explanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-002",
+   "input": "اضبط المظهر على الوضع الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "failureCategory": "wrong_parameter",
+   "explanation": "Expected {mode: light}, model gave {mode: dark}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-004",
+   "input": "اجعل المظهر مطابقاً لإعدادات الجهاز",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null
+   },
+   "rawModelOutput": "call change_theme({mode: dark}) | call change_theme({mode: light})",
+   "failureCategory": "multiple_function_calls",
+   "explanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-005",
+   "input": "اعتمد مظهر النظام تلقائياً",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot assist with this request. My current capabilities are limited to assisting with app management and navigation. I cannot provide advice or recommendations regarding system modifications.\"",
+   "failureCategory": "prose_output",
+   "explanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-002",
+   "input": "انتقل إلى الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_parameter",
+   "explanation": "Expected {destination: settings}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-004",
+   "input": "أريد رؤية ملفي الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I can help with that. Could you please specify the name or title of the file or folder you would like to view?\"",
+   "failureCategory": "prose_output",
+   "explanation": "Model answered in prose instead of calling navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-msa-001",
+   "input": "بدّل مظهر التطبيق",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null
+   },
+   "rawModelOutput": "call change_theme({mode: light}) | call change_theme({mode: dark})",
+   "failureCategory": "multiple_function_calls",
+   "explanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-001",
+   "input": "خلي التطبيق دارك",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_action",
+   "explanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-002",
+   "input": "خلي الثيم فاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_action",
+   "explanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-003",
+   "input": "عايز الوضع الغامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I can certainly help with that! To assist you with the appropriate application function, could you please specify the theme you are looking for?\"",
+   "failureCategory": "prose_output",
+   "explanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-004",
+   "input": "رجّع الشكل لفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_action",
+   "explanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-005",
+   "input": "خلي الشكل زي إعدادات الموبايل",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_action",
+   "explanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-002",
+   "input": "روح على الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_parameter",
+   "explanation": "Expected {destination: settings}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-003",
+   "input": "وديني على الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_parameter",
+   "explanation": "Expected {destination: home}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-004",
+   "input": "ورّيني حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with managing your account or providing financial advice. My current capabilities are limited to assisting with app customization and navigation. I cannot browse accounts or provide financial assistance.\"",
+   "failureCategory": "prose_output",
+   "explanation": "Model answered in prose instead of calling navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-egy-001",
+   "input": "بدّل الثيم لو سمحت",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "fabricated_parameter",
+   "explanation": "Required value was missing from the request but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-002",
+   "input": "خلي الـtheme system",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "failureCategory": "wrong_action",
+   "explanation": "Expected change_theme, model called navigate."
+  }
+ ],
+ "cases": [
+  {
+   "id": "phase_2_recovery_v1-theme-eng-001",
+   "language": "english",
+   "input": "Turn on dark mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1257,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-002",
+   "language": "english",
+   "input": "Make the app dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1326,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-003",
+   "language": "english",
+   "input": "Switch to light mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1277,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-004",
+   "language": "english",
+   "input": "I'd like the light appearance",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1277,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-eng-005",
+   "language": "english",
+   "input": "Set the appearance to match my device",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "text \"I cannot assist with setting the appearance to match your device. My current capabilities are limited to assisting with app theme management.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2300,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "prose_output",
+   "failureExplanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-001",
+   "language": "english",
+   "input": "Open my profile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1275,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-002",
+   "language": "english",
+   "input": "Take me to settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1272,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-003",
+   "language": "english",
+   "input": "Go back to home",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1435,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-eng-004",
+   "language": "english",
+   "input": "Bring up my profile page",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1268,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-eng-001",
+   "language": "english",
+   "input": "Send an email to my boss",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with sending or managing emails. My current capabilities are limited to assisting with app management and navigation tasks.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2376,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-eng-002",
+   "language": "english",
+   "input": "Open WhatsApp",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1254,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "unsupported_request_mapped_to_action",
+   "failureExplanation": "Request should not map to an exposed action but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-eng-001",
+   "language": "english",
+   "input": "Switch the appearance",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1260,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-001",
+   "language": "msa_arabic",
+   "input": "حوّل التطبيق إلى المظهر الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark}) | call change_theme({mode: light})",
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null,
+    "malformedReason": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "malformedPrediction",
+    "message": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "executed": false,
+   "latencyMs": 1393,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "multipleCalls",
+   "failureTags": [
+    "multiple_function_calls"
+   ],
+   "invalidOutput": true,
+   "fabricatedParameter": false,
+   "failureCategory": "multiple_function_calls",
+   "failureExplanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-002",
+   "language": "msa_arabic",
+   "input": "اضبط المظهر على الوضع الفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1316,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_parameter",
+   "failureExplanation": "Expected {mode: light}, model gave {mode: dark}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-003",
+   "language": "msa_arabic",
+   "input": "فعّل الوضع الداكن",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1280,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-004",
+   "language": "msa_arabic",
+   "input": "اجعل المظهر مطابقاً لإعدادات الجهاز",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark}) | call change_theme({mode: light})",
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null,
+    "malformedReason": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "malformedPrediction",
+    "message": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "executed": false,
+   "latencyMs": 1397,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "multipleCalls",
+   "failureTags": [
+    "multiple_function_calls"
+   ],
+   "invalidOutput": true,
+   "fabricatedParameter": false,
+   "failureCategory": "multiple_function_calls",
+   "failureExplanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-msa-005",
+   "language": "msa_arabic",
+   "input": "اعتمد مظهر النظام تلقائياً",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "text \"I cannot assist with this request. My current capabilities are limited to assisting with app management and navigation. I cannot provide advice or recommendations regarding system modifications.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2348,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "prose_output",
+   "failureExplanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-001",
+   "language": "msa_arabic",
+   "input": "افتح الملف الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1323,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-002",
+   "language": "msa_arabic",
+   "input": "انتقل إلى الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1317,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_parameter",
+   "failureExplanation": "Expected {destination: settings}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-003",
+   "language": "msa_arabic",
+   "input": "عُد إلى الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1270,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-msa-004",
+   "language": "msa_arabic",
+   "input": "أريد رؤية ملفي الشخصي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "text \"I can help with that. Could you please specify the name or title of the file or folder you would like to view?\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2351,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "prose_output",
+   "failureExplanation": "Model answered in prose instead of calling navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-msa-001",
+   "language": "msa_arabic",
+   "input": "أرسل رسالة بريد إلكتروني إلى المدير",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with sending or managing emails. My current capabilities are limited to assisting with app management and navigation.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2514,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-msa-002",
+   "language": "msa_arabic",
+   "input": "حوّل مبلغاً من المال إلى حسابي",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot assist with financial transactions or conversions. My current capabilities are limited to managing app themes and navigating the specified locations.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2350,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-msa-001",
+   "language": "msa_arabic",
+   "input": "بدّل مظهر التطبيق",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call change_theme({mode: light}) | call change_theme({mode: dark})",
+   "actual": {
+    "status": null,
+    "action": null,
+    "parameters": null,
+    "malformedReason": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "malformedPrediction",
+    "message": "multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+   },
+   "executed": false,
+   "latencyMs": 1371,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "multipleCalls",
+   "failureTags": [
+    "multiple_function_calls"
+   ],
+   "invalidOutput": true,
+   "fabricatedParameter": false,
+   "failureCategory": "multiple_function_calls",
+   "failureExplanation": "Model emitted several function calls; none executed. multiple_function_calls: model emitted 2 function calls; exactly one is allowed (none executed)."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-001",
+   "language": "egyptian_arabic",
+   "input": "خلي التطبيق دارك",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1287,
+   "statusCorrect": true,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_action",
+   "failureExplanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-002",
+   "language": "egyptian_arabic",
+   "input": "خلي الثيم فاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1287,
+   "statusCorrect": true,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_action",
+   "failureExplanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-003",
+   "language": "egyptian_arabic",
+   "input": "عايز الوضع الغامق",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "text \"I can certainly help with that! To assist you with the appropriate application function, could you please specify the theme you are looking for?\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2279,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "prose_output",
+   "failureExplanation": "Model answered in prose instead of calling change_theme."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-004",
+   "language": "egyptian_arabic",
+   "input": "رجّع الشكل لفاتح",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1509,
+   "statusCorrect": true,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_action",
+   "failureExplanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-egy-005",
+   "language": "egyptian_arabic",
+   "input": "خلي الشكل زي إعدادات الموبايل",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1426,
+   "statusCorrect": true,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_action",
+   "failureExplanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-001",
+   "language": "egyptian_arabic",
+   "input": "افتحلي البروفايل",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1438,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-002",
+   "language": "egyptian_arabic",
+   "input": "روح على الإعدادات",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1285,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_parameter",
+   "failureExplanation": "Expected {destination: settings}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-003",
+   "language": "egyptian_arabic",
+   "input": "وديني على الصفحة الرئيسية",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1290,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_parameter",
+   "failureExplanation": "Expected {destination: home}, model gave {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-egy-004",
+   "language": "egyptian_arabic",
+   "input": "ورّيني حسابي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with managing your account or providing financial advice. My current capabilities are limited to assisting with app customization and navigation. I cannot browse accounts or provide financial assistance.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2368,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "prose_output",
+   "failureExplanation": "Model answered in prose instead of calling navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-egy-001",
+   "language": "egyptian_arabic",
+   "input": "كلّم أحمد",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with explaining lessons or personal development plans. My current capabilities are limited to assisting with app management tasks like navigating and changing themes.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2402,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-egy-002",
+   "language": "egyptian_arabic",
+   "input": "اشتريلي لابتوب",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I cannot assist with buying or selling electronics. My current capabilities are focused on managing app themes and navigation.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2301,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-egy-001",
+   "language": "egyptian_arabic",
+   "input": "بدّل الثيم لو سمحت",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1308,
+   "statusCorrect": false,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": true,
+   "failureCategory": "fabricated_parameter",
+   "failureExplanation": "Required value was missing from the request but the model called navigate with {destination: profile}."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-001",
+   "language": "mixed",
+   "input": "خلي الـtheme dark",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1342,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-002",
+   "language": "mixed",
+   "input": "خلي الـtheme system",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1290,
+   "statusCorrect": true,
+   "actionCorrect": false,
+   "parametersCorrect": false,
+   "fullPredictionCorrect": false,
+   "outputKind": "functionCall",
+   "failureTags": [
+    "navigate_profile_collapse"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false,
+   "failureCategory": "wrong_action",
+   "failureExplanation": "Expected change_theme, model called navigate."
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-003",
+   "language": "mixed",
+   "input": "فعّل الـlight mode",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: light})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "light"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1310,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-004",
+   "language": "mixed",
+   "input": "switch لـdark theme",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: dark})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "dark"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1286,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-theme-mix-005",
+   "language": "mixed",
+   "input": "ظبط الـtheme على system",
+   "expected": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "rawModelOutput": "call change_theme({mode: system})",
+   "actual": {
+    "status": "success",
+    "action": "change_theme",
+    "parameters": {
+     "mode": "system"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1261,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-001",
+   "language": "mixed",
+   "input": "افتح الـprofile",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1267,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-002",
+   "language": "mixed",
+   "input": "روح على settings",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: settings})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "settings"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1284,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-003",
+   "language": "mixed",
+   "input": "go to الـhome",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: home})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "home"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1276,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-nav-mix-004",
+   "language": "mixed",
+   "input": "open الـprofile بتاعي",
+   "expected": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "rawModelOutput": "call navigate({destination: profile})",
+   "actual": {
+    "status": "success",
+    "action": "navigate",
+    "parameters": {
+     "destination": "profile"
+    }
+   },
+   "validation": {
+    "accepted": true
+   },
+   "executed": true,
+   "latencyMs": 1263,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "functionCall",
+   "failureTags": [],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-mix-001",
+   "language": "mixed",
+   "input": "ابعت email لـmanager",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with managing email accounts or accessing email-related information. My current capabilities are limited to assisting with app management and navigation.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2531,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-unsupported-mix-002",
+   "language": "mixed",
+   "input": "call my mom يا عم",
+   "expected": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "rawModelOutput": "text \"I apologize, but I cannot assist with calling your mom. My current capabilities are limited to managing app themes and navigating the specified locations. I cannot interact with family members or call specific functions.\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2388,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  },
+  {
+   "id": "phase_2_recovery_v1-clarify-mix-001",
+   "language": "mixed",
+   "input": "عدّل الـtheme",
+   "expected": {
+    "status": "clarification_required",
+    "action": null,
+    "parameters": {},
+    "acceptableStatuses": [
+     "clarification_required",
+     "unsupported"
+    ]
+   },
+   "rawModelOutput": "text \"I can certainly help with that. What theme would you like to apply?\"",
+   "actual": {
+    "status": "unsupported",
+    "action": null,
+    "parameters": {}
+   },
+   "validation": {
+    "accepted": false,
+    "rejectionReason": "unsupportedRequest",
+    "message": "Request unsupported; nothing to execute."
+   },
+   "executed": false,
+   "latencyMs": 2284,
+   "statusCorrect": true,
+   "actionCorrect": true,
+   "parametersCorrect": true,
+   "fullPredictionCorrect": true,
+   "outputKind": "prose",
+   "failureTags": [
+    "prose_output"
+   ],
+   "invalidOutput": false,
+   "fabricatedParameter": false
+  }
+ ],
+ "integrationSanity": [
+  {
+   "input": "Turn on dark mode",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 1307
+  },
+  {
+   "input": "خلي التطبيق دارك",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1298
+  },
+  {
+   "input": "يا عم خلّي التطبيق دارك",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1276
+  },
+  {
+   "input": "خلي الـtheme dark",
+   "raw": "call change_theme({mode: dark})",
+   "action": "change_theme",
+   "parameters": {
+    "mode": "dark"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "dark",
+   "pageAfter": "home",
+   "latencyMs": 1269
+  },
+  {
+   "input": "Open my profile",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1325
+  },
+  {
+   "input": "افتح البروفايل",
+   "raw": "call navigate({destination: profile})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "profile"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "profile",
+   "latencyMs": 1349
+  },
+  {
+   "input": "روح على settings",
+   "raw": "call navigate({destination: settings})",
+   "action": "navigate",
+   "parameters": {
+    "destination": "settings"
+   },
+   "validation": "ValidationAccepted",
+   "executed": true,
+   "themeBefore": "light",
+   "themeAfter": "light",
+   "pageAfter": "settings",
+   "latencyMs": 1340
+  }
+ ]
+}
